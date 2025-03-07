@@ -113,8 +113,6 @@
     </form>
     <% } %>  
   </div>
-
-   Logout Modal 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border: 2px solid #FFD700; border-radius: 15px; box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);">
@@ -134,6 +132,5 @@
 </div>
 
 </nav>
-
 </body>
 </html>
