@@ -180,7 +180,6 @@
         session.removeAttribute("failedMsg");
     }
     %> 
-
     <div class="booking-container">
         <div class="row">
             <% 
@@ -218,11 +217,8 @@
             <p><strong>Driver Contact:</strong> <%= driverPhoneNumber %></p>
         <% } %>
         <div class="text-center mt-3">
-            <a href="editbooking.jsp?cid=<%= c.getID() %>" class="btn btn-custom btn-edit text-white">Edit</a> 
-            <a href="delete?cid=<%= c.getID() %>" class="btn btn-custom btn-delete text-white">Delete</a>
-            <% if ("Accepted".equals(c.getStatus()) && !"Not Assigned".equals(driverName) && !"Not Available".equals(driverPhoneNumber)) { %>
-                <a href="GenerateBillServlet?cid=<%= c.getID() %>" class="btn btn-custom btn-download text-white">Download Bill</a>
-            <% } %>
+            <a href="EditBooking.jsp?cid=<%= c.getID() %>" class="btn btn-custom btn-edit text-white">Edit</a> 
+            <a href="delete?cid=<%= c.getID() %>" class="btn btn-custom btn-delete text-white">Delete</a>        
         </div>
     </div>
 </div>
