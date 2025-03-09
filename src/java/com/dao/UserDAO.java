@@ -71,4 +71,89 @@ public class UserDAO {
         }
         return count;
     }
+     public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM user";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setAddress(rs.getString("address"));
+                user.setNIC(rs.getString("nic"));
+                user.setemail(rs.getString("email"));
+                user.setpassword(rs.getString("password"));
+
+                userList.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    public User getUserById(int id) {
+        User user = null;
+        try {
+            String sql = "SELECT * FROM user WHERE id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setAddress(rs.getString("address"));
+                user.setNIC(rs.getString("nic"));
+                user.setemail(rs.getString("email"));
+                user.setpassword(rs.getString("password"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public boolean updateUser(User u) {
+        boolean f = false;
+        try {
+            String sql = "UPDATE user SET name=?, address=?, nic=?, email=?, password=? WHERE id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, u.getName());
+            ps.setString(2, u.getAddress());
+            ps.setString(3, u.getNIC());
+            ps.setString(4, u.getemail());
+            ps.setString(5, u.getpassword());
+            ps.setInt(6, u.getID());
+
+            int i = ps.executeUpdate();
+            if (i == 1) {
+                f = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
+
+    public boolean deleteUser(int id) {
+        boolean f = false;
+        try {
+            String sql = "DELETE FROM user WHERE id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            int i = ps.executeUpdate();
+            if (i == 1) {
+                f = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
 }

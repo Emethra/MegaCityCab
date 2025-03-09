@@ -146,20 +146,20 @@
         <div class="dashboard-card">
             <h2>Total Users</h2>
             <h3><%= userCount %></h3>
-            <a href="adminManageUsers.jsp" class="btn-adminView">View Users</a>
+            <a href="adminManageUser.jsp" class="btn-adminView">View Users</a>
         </div>
         
         <div class="dashboard-card">
             <h2>Total Booking Amount</h2>
             <h3>Rs. <%= formattedAmount %></h3>
-            <a href="adminManageBookings.jsp" class="btn-adminView">View Bookings</a>
+            <a href="adminManageBooking.jsp" class="btn-adminView">View Bookings</a>
         </div>
         
         <div class="dashboard-card">
             <h2>Total Drivers</h2>
             <h3><%= driverCount %></h3>
-            <a href="adminManageDrivers.jsp" class="btn-adminView">View Drivers</a>
-        </div>
+            <a href="adminManageDriver.jsp" class="btn-adminView">View Drivers</a>
+        </div> 
     </div>
 </body>
 </html>
