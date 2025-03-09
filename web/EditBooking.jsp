@@ -16,7 +16,7 @@
         <%@include file="component/allCss.jsp"%>
         <style>
             body {
-            background-image: url('img/addBookingB.jpg');
+            background-image: url('img/waldemar-kYbYIWdJRh0-unsplash.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;

@@ -110,7 +110,7 @@
         
         <style type="text/css">
             body {
-                background-image: url('img/addBookingB.jpg');
+                background-image: url('img/yellow-black-sign-taxi-placed-top-car-night.jpg');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
