@@ -14,112 +14,249 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard - Cab Service</title>
+    <title>Admin Dashboard - Mega City Cab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .dashboard-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 220px auto;
-            max-width: 1200px;
-            perspective: 1000px;
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .dashboard-card {
-            width: 320px;
-            padding: 25px;
-            background: linear-gradient(135deg, #fff9e6, #fff3cc);
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            transform: translateZ(0);
-        }
+body {
+    background: #ffffff; /* Pure white background */
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
 
-        .dashboard-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(255, 204, 0, 0.2);
-        }
+/* Dashboard Header */
+.dashboard-header {
+    text-align: center;
+    margin: 60px 0;
+    animation: fadeIn 1s ease-out;
+}
 
-        .dashboard-card h2 {
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+}
 
-        .dashboard-card h2::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, #ffcc00, #ff9900);
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
+.dashboard-header h1::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #F4B400, #FFD700);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
 
-        .dashboard-card h3 {
-            color: #ff6600;
-            font-size: 2.2em;
-            margin: 15px 0;
-            font-weight: 700;
-            animation: numberFade 1s ease-in;
-        }
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
 
-        .btn-adminView {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(45deg, #ffcc00, #ff9900);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
-        }
+/* Dashboard Card */
+.dashboard-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+}
 
-        .btn-adminView:hover {
-            background: linear-gradient(45deg, #ff9900, #ff6600);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.5);
-        }
+.dashboard-card:nth-child(1) { animation-delay: 0.2s; }
+.dashboard-card:nth-child(2) { animation-delay: 0.4s; }
+.dashboard-card:nth-child(3) { animation-delay: 0.6s; }
 
-        @keyframes numberFade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
 
-        @media (max-width: 768px) {
-            .dashboard-container {
-                flex-direction: column;
-                align-items: center;
-                margin: 20px;
-            }           
-            .dashboard-card {
-                width: 90%;
-                margin-bottom: 20px;
-            }
-        }
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
 
-        body { /* Fixed the class selector to tag selector */
-            background: linear-gradient(to bottom, #fff7e6, #ffe6b3); 
-            min-height: 100vh;
-            font-family: 'Segoe UI', sans-serif;
-        }
+.card-icon {
+    width: 40px;
+    height: 40px;
+    background: #F4B400;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .card-icon {
+    transform: rotate(360deg);
+}
+
+.dashboard-card h2 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card Body */
+.dashboard-card h3 {
+    color: #F4B400;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 10px 0;
+    animation: numberFade 1s ease-in;
+}
+
+.dashboard-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Progress Circle (Decorative) */
+.progress-circle {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    position: relative;
+}
+
+.progress-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    cx: 40;
+    cy: 40;
+    r: 36;
+}
+
+.progress-circle .bg {
+    stroke: #e0e0e0;
+}
+
+.progress-circle .progress {
+    stroke: #F4B400;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.progress-circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: #F4B400;
+    font-weight: 600;
+}
+
+/* View Button */
+.btn-adminView {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #F4B400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 3px 10px rgba(244, 180, 0, 0.3);
+}
+
+.btn-adminView:hover {
+    background: #E0A800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 180, 0, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes numberFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+    .btn-adminView {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
     </style>
+    <script>
+        // Animate progress circles based on data
+        document.addEventListener('DOMContentLoaded', () => {
+            const circles = document.querySelectorAll('.progress-circle');
+            circles.forEach(circle => {
+                const progress = circle.getAttribute('data-progress');
+                const progressBar = circle.querySelector('.progress');
+                const circumference = 2 * Math.PI * 36; // 36 is the radius of the circle
+                progressBar.style.strokeDasharray = circumference;
+                progressBar.style.strokeDashoffset = circumference * (1 - progress / 100);
+            });
+        });
+    </script>
 </head>
 <body>
     <%@include file="component/adminNavbar.jsp" %>
@@ -140,25 +277,67 @@
         
         DecimalFormat df = new DecimalFormat("#,##0.00");
         String formattedAmount = df.format(totalAmount);
+
+        // Placeholder percentages for progress circles (you can calculate these dynamically)
+        int userProgress = Math.min(userCount * 10, 100); // Example: 10 users = 100%
+        int amountProgress = Math.min((int)(totalAmount / 10000), 100); // Example: 10000 Rs = 100%
+        int driverProgress = Math.min(driverCount * 20, 100); // Example: 5 drivers = 100%
     %>
     
+    <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+    </div>
+
     <div class="dashboard-container">
         <div class="dashboard-card">
-            <h2>Total Users</h2>
+            <div class="card-header">
+                <span class="card-icon"><i class="fas fa-users"></i></span>
+                <h2>Total Users</h2>
+            </div>
+            <div class="progress-circle" data-progress="<%= userProgress %>">
+                <svg>
+                    <circle class="bg" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+                <span><%= userProgress %>%</span>
+            </div>
             <h3><%= userCount %></h3>
-            <a href="adminManageUser.jsp" class="btn-adminView">View Users</a>
+            <p>Registered Users</p>
+            <a href="adminManageUser.jsp" class="btn-adminView" aria-label="View users">View Users</a>
         </div>
         
         <div class="dashboard-card">
-            <h2>Total Booking Amount</h2>
+            <div class="card-header">
+                <span class="card-icon"><i class="fas fa-money-bill-wave"></i></span>
+                <h2>Total Booking Amount</h2>
+            </div>
+            <div class="progress-circle" data-progress="<%= amountProgress %>">
+                <svg>
+                    <circle class="bg" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+                <span><%= amountProgress %>%</span>
+            </div>
             <h3>Rs. <%= formattedAmount %></h3>
-            <a href="adminManageBooking.jsp" class="btn-adminView">View Bookings</a>
+            <p>Total Revenue</p>
+            <a href="adminManageBooking.jsp" class="btn-adminView" aria-label="View bookings">View Bookings</a>
         </div>
         
         <div class="dashboard-card">
-            <h2>Total Drivers</h2>
+            <div class="card-header">
+                <span class="card-icon"><i class="fas fa-user-tie"></i></span>
+                <h2>Total Drivers</h2>
+            </div>
+            <div class="progress-circle" data-progress="<%= driverProgress %>">
+                <svg>
+                    <circle class="bg" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+                <span><%= driverProgress %>%</span>
+            </div>
             <h3><%= driverCount %></h3>
-            <a href="adminManageDriver.jsp" class="btn-adminView">View Drivers</a>
+            <p>Active Drivers</p>
+            <a href="adminManageDriver.jsp" class="btn-adminView" aria-label="View drivers">View Drivers</a>
         </div> 
     </div>
 </body>

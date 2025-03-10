@@ -21,15 +21,17 @@
         }
 
         /* Navbar */
-        .navbar {
-            background: linear-gradient(90deg, #1a1a2e, #2a2a4e); /* Gradient background */
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            animation: slideDown 0.8s ease-out;
-        }
+        /* Navbar */
+.navbar {
+    background: #000; /* Black background */
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.8s ease-out;
+}
+
 
         .navbar-brand {
             font-size: 1.8rem;
