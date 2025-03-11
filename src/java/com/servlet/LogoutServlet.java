@@ -18,17 +18,12 @@ import java.io.IOException;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
-    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        
-        HttpSession session = req.getSession();
-        session.removeAttribute("user");
-        
-        HttpSession session2 = req.getSession();
-        session2.setAttribute("logMsg", "Logout Sucessfully");
-        
-        resp.sendRedirect("login.jsp");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect("login.jsp"); // Redirect to login page after logout
     }
-    
 }

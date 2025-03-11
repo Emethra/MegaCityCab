@@ -197,12 +197,12 @@
         }
         
         DriverDAO driverDao = new DriverDAO(DbConnect.getConn());
-        List<driver> drivers = driverDao.getAllDrivers();
+        List<Driver> drivers = driverDao.getAllDrivers();
     %>
 
     <div class="container">
         <h2>Manage Drivers</h2>
-        <a href="addDriver.jsp" class="add-driver-btn">Add New Driver</a>
+        <a href="AddDriver.jsp" class="add-driver-btn">Add New Driver</a>
         
         <table>
             <thead>

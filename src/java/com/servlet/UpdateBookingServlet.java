@@ -42,7 +42,7 @@ public class UpdateBookingServlet extends HttpServlet {
                 boolean driverExists = driverDao.driverExists(driverId);
                 if (!driverExists) {
                     session.setAttribute("failedMsg", "Invalid Driver ID: " + driverId);
-                    resp.sendRedirect("adminManageBookings.jsp");
+                    resp.sendRedirect("adminManageBooking.jsp");
                     return;
                 }
                 
@@ -55,7 +55,7 @@ public class UpdateBookingServlet extends HttpServlet {
             Booking booking = dao.getContactById(cid);
             if (booking == null) {
                 session.setAttribute("failedMsg", "Booking not found..");
-                resp.sendRedirect("adminManageBookings.jsp");
+                resp.sendRedirect("adminManageBooking.jsp");
                 return;
             }
 
@@ -77,6 +77,6 @@ public class UpdateBookingServlet extends HttpServlet {
             e.printStackTrace();
             session.setAttribute("failedMsg", "Failed to Update Booking Status: " + e.getMessage());
         }
-        resp.sendRedirect("adminManageBookings.jsp"); // Fixed typo
+        resp.sendRedirect("adminManageBooking.jsp"); // Fixed typo
     }
 }

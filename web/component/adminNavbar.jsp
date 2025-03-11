@@ -247,11 +247,7 @@
             to { transform: translateY(0); }
         }
 
-        @keyframes carPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+        
 
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.95); }
@@ -295,13 +291,13 @@
                 <a class="nav-link" href="AdminViewDashboard.jsp"><i class="fa-solid fa-house"></i> Dashboard</a>
             </li>
             <li class="nav-item active mx-3">
-                <a class="nav-link" href="adminManageUsers.jsp"><i class="fa-solid fa-users"></i> Manage Users</a>
+                <a class="nav-link" href="adminManageUser.jsp"><i class="fa-solid fa-users"></i> Manage Users</a>
             </li>
             <li class="nav-item active mx-3">
-                <a class="nav-link" href="adminManageBookings.jsp"><i class="fa-solid fa-calendar-check"></i> Manage Bookings</a>
+                <a class="nav-link" href="adminManageBooking.jsp"><i class="fa-solid fa-calendar-check"></i> Manage Bookings</a>
             </li>
             <li class="nav-item active mx-3">
-                <a class="nav-link" href="adminManageDrivers.jsp"><i class="fa-solid fa-chart-bar"></i> Manage Drivers</a>
+                <a class="nav-link" href="adminManageDriver.jsp"><i class="fa-solid fa-chart-bar"></i> Manage Drivers</a>
             </li>
         </ul>
 

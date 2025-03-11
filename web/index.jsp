@@ -33,6 +33,49 @@
     overflow: hidden;
     padding: 20px;
 }
+section {
+                padding: 100px 17% 90px;
+            }
+            .home{
+                position: relative;
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                background: url(img/bg.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+            .home-content{
+                padding-top: 170px;
+            }
+            .home-img{
+                position: relative;
+            }
+            .home-img img{
+                margin-top: 50px;
+                max-width: 850px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .home-content h5{
+                font-size: 18px;
+                font-weight: 600;
+                color: yellow;
+                text-transform:uppercase;
+                margin-top: 9px;
+                letter-spacing:7px;
+            }
+            .home-content h1{
+                font-size: 60px;
+                font-weight: 900;
+                color: white;
+                line-height: 1.2;
+            }
 
 /* Hero Content */
 .hero-content {
@@ -76,10 +119,6 @@
     animation: expandGlow 1.5s ease-in-out forwards;
 }
 
-@keyframes expandGlow {
-    0% { width: 0; }
-    100% { width: 80%; }
-}
 
 /* Animated Subtitle */
 .hero-subtitle {
@@ -166,54 +205,6 @@
 .social-bar a:hover {
     color: #fff;
     transform: scale(1.2);
-}
-
-/* Animations */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 /* Responsive Design */
@@ -332,17 +323,7 @@
                 transform-origin: center;
             }
 
-            @keyframes driveMotion {
-                0% {
-                    transform: translateX(-20px) scale(1);
-                }
-                50% {
-                    transform: translateX(20px) scale(1.05);
-                }
-                100% {
-                    transform: translateX(-20px) scale(1);
-                }
-            }
+            
 
             .feature-list {
                 display: grid;
@@ -471,28 +452,32 @@
         <%@include file="component/navbar.jsp" %>
 
         <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-content">
-        <h1 class="hero-title">
-            Ride in Style with <br>
-           <span class="brand-name">Mega City Cab</span>
-            <span class="underline-glow"></span>
-        </h1>
-        <p class="hero-subtitle">Experience premium transportation services with safety and comfort guaranteed</p>
-        <a href="AddBooking.jsp" class="cta-button">
-            Book Your Ride Now
-            <span class="button-icon"><i class="ri-arrow-right-line"></i></span>
-        </a>
-    </div>
-    
-    <div class="social-bar">
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#"><i class="fa-solid fa-basketball"></i></a>
-    </div>
-</section>
+        
+<section class="home" id="home">
+            <div class="home-content">
+                <div class="home-text">
+                    <h5>Welcome to Mega City Cab </h5>
+                    <h1>Securely Booking your Cab today <br> From Any Location</h1>
+                </div>
+                <div class="home-img">
+                    <img src="img/home.png">
+                    <div class="info-box">
+                        <div class="count">80+</div>
+                        <div class="info-text">Available taxi for booking</div>
+                    </div>
+                </div>
+                <div class="socail-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-solid fa-basketball"></i></a>
+                </div>
+                
+                <div class="arrow">
+                    <a href="#about"><i class="fa-solid fa-arrow-down-long"></i></a>
+                </div>
+            </div>
+        </section>
 
         <!-- About Section -->
         <section class="about-section">
@@ -566,7 +551,6 @@
                 </div>
             </div>
         </section>
-
         <%@include file="component/footer.jsp" %>
     </body>
 </html>

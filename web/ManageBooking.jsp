@@ -257,25 +257,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes carPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+        
 
-        @keyframes glow {
-            0% { transform: scale(0); opacity: 0.5; }
-            50% { transform: scale(1.5); opacity: 0; }
-            100% { transform: scale(0); opacity: 0.5; }
-        }
+        
 
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.95); }
-            50% { transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Responsive Design */
+       
+       /* Responsive Design */
         @media (max-width: 768px) {
             .booking-header h2 {
                 font-size: 2.2rem;
@@ -441,7 +428,7 @@
         <% } %>
     </div>
     <div class="card-footer">
-        <a href="EditBooking.jsp?cid=<%= c.getID() %>" class="btn-custom btn-edit" aria-label="Edit booking">Edit</a>
+        <a href="editBooking.jsp?cid=<%= c.getID() %>" class="btn-custom btn-edit" aria-label="Edit booking">Edit</a>
         <a href="delete?cid=<%= c.getID() %>" class="btn-custom btn-delete" aria-label="Delete booking">Delete</a>
     </div>
 </div>

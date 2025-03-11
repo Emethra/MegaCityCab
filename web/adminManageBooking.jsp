@@ -4,11 +4,10 @@
     Author     : Hasara Hithaishi
 --%>
 
-<%@page import="com.entity.driver"%>
+<%@page import="com.entity.Driver"%>
 <%@page import="com.entity.Booking"%>
 <%@page import="com.dao.BookingDAO"%>
 <%@page import="com.dao.DriverDAO"%>
-<%@page import="com.entity.driver"%>
 <%@page import="com.conn.DbConnect"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -190,7 +189,7 @@
             return;
         }
         DriverDAO driverDao = new DriverDAO(DbConnect.getConn());
-        List<driver> drivers = driverDao.getAllDrivers();
+        List<Driver> drivers = driverDao.getAllDrivers();
         BookingDAO bookingDao = new BookingDAO(DbConnect.getConn());
     %>
 
@@ -260,7 +259,7 @@
                                 <div class="driver-select-container">
                                     <select name="driverId" class="driver-select" onchange="if(this.value !== '') this.form.submit()">
                                         <option value="">-- Select Driver --</option>
-                                        <% for (driver d : drivers) { %>
+                                        <% for (Driver d : drivers) { %>
                                             <option value="<%= d.getId() %>" <%= c.getDriverId() != null && c.getDriverId() == d.getId() ? "selected" : "" %>>
                                                 <%= d.getName() %>
                                             </option>
